@@ -1,7 +1,7 @@
 <template>
-    <MyHeader></MyHeader>
+	<RouterView></RouterView>
 </template>
 
 <script setup>
-    import MyHeader from './components/MyHeader.vue';
+	import { RouterView } from "vue-router";
 </script>
