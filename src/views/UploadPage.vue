@@ -103,7 +103,7 @@
 	const uploadRef = ref();
 
 	const submitForm = () => {
-		const str = textarea;
+		const str = textarea.value;
 		console.log(str);
 		if (str.length !== 0) {
 			const fileContent = new File([str], "Text.txt", { type: "text/plain" });
@@ -114,7 +114,7 @@
 			formData.append("user_type", localStorage.getItem("ms_usertype"));
 			formData.append("file", fileContent);
 			// console.log(formData);
-			textarea = "";
+			textarea.value = "";
 			ElMessage.success("已上传服务器，请等待解析");
 			MultipartFile(formData)
 				.then((res) => {

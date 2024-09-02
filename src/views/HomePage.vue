@@ -15,7 +15,7 @@
 						基于多模态大模型自动抽取并结构化简历关键信息，无需再一字一行地浏览简历。
 					</p>
 					<RouterLink
-						to="signin"
+						:to=jumpTo
 						class="inline-flex items-center px-6 py-4 mt-8 font-semibold text-white transition-all duration-200 bg-blue-600 rounded-lg sm:mt-16 hover:bg-blue-700 focus:bg-blue-700"
 						role="button"
 					>
@@ -195,3 +195,12 @@
 		</div>
 	</section>
 </template>
+<script setup>
+	import { onMounted, ref } from "vue";
+	const jumpTo = ref("signin");
+	onMounted(() => {
+		if (localStorage.getItem("ms_username")) {
+			jumpTo.value = "upload";
+		}
+	});
+</script>
